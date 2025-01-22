@@ -1,4 +1,4 @@
-# nodejs-express-starter
+# First steps:
 
 Install Nodemon: `npm install -g nodemon`
 
