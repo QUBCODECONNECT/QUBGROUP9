@@ -1,7 +1,7 @@
 # First steps:
 
-Install Nodemon: `npm install -g nodemon`
+1. Install Nodemon: `npm install -g nodemon`
 
-Install dependencies `npm install`
+2. Install dependencies `npm install`
 
-Run application: `npm start`
+3. Run application: `npm start`
