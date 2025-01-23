@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Austris",
+    "address": "shaun@test.com",
+    "salary": "Software Engineer",
+    "role": "Software Engineer",
+    "empNum": "Software Engineer"
+  },
+  {
+    "id": 1,
+    "name": "Shaun",
+    "address": "shaun@test.com",
+    "salary": "Software Engineer",
+    "role": "Software Engineer",
+    "empNum": "Software Engineer"
+  },
+  {
+    "id": 1,
+    "name": "Shaun",
+    "address": "shaun@test.com",
+    "salary": "Software Engineer",
+    "role": "Software Engineer",
+    "empNum": "Software Engineer"
+  }
+]
