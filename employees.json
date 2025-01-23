@@ -8,16 +8,16 @@
     "empNum": "Software Engineer"
   },
   {
-    "id": 1,
-    "name": "Shaun",
+    "id": 2,
+    "name": "Paul",
     "address": "shaun@test.com",
     "salary": "Software Engineer",
     "role": "Software Engineer",
     "empNum": "Software Engineer"
   },
   {
-    "id": 1,
-    "name": "Shaun",
+    "id": 3,
+    "name": "Leo",
     "address": "shaun@test.com",
     "salary": "Software Engineer",
     "role": "Software Engineer",

@@ -31,7 +31,7 @@ class UserService {
         return this.readUsers();
     }
 
-    // Get a user by ID
+    // Get a employee by ID
     getUserById(id) {
         const users = this.readUsers();
         return users.find(user => user.id === id);

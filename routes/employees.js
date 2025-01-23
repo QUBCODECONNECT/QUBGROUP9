@@ -15,4 +15,14 @@ router.get('/', (req,res)=>{
 });
 
 
+router.get('/:id', (req, res) => {
+    console.log("Hello");
+    const employee = userService.getUserById(parseInt(req.params.id));
+    console.log(`here ${employee.name}`);
+    if (!employee) return res.status(404).send('Employee not found');
+    res.render('employee', { employee: employee })
+    
+  });
+
+
 module.exports = router;
