@@ -1,0 +1,41 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Employees List</h1>
+
+    <% if (employees && employees.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>Role</th>
+                    <th>Employee Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% employees.forEach(Employees => { %>
+                    <tr>
+                        <td><%= Employees.name %></td>
+                        <td><%= Employees.address %></td>
+                        <td><%= Employees.salary %></td>
+                        <td><%= Employees.role %></td>
+                        <td><%= Employees.empNum %></td>
+                        <td><a href="/employees/<%= Employees.id %>">View</a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No users found.</p>
+    <% } %>
+</body>
+</html>
