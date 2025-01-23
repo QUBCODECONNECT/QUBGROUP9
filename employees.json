@@ -2,25 +2,81 @@
   {
     "id": 1,
     "name": "Austris",
-    "address": "shaun@test.com",
-    "salary": "Software Engineer",
+    "address": "austris@test.com",
+    "salary": "85000",
     "role": "Software Engineer",
-    "empNum": "Software Engineer"
+    "empNum": "SE123"
   },
   {
     "id": 2,
-    "name": "Paul",
-    "address": "shaun@test.com",
-    "salary": "Software Engineer",
-    "role": "Software Engineer",
-    "empNum": "Software Engineer"
+    "name": "Emily",
+    "address": "emily@test.com",
+    "salary": "92000",
+    "role": "Frontend Developer",
+    "empNum": "FD456"
   },
   {
     "id": 3,
-    "name": "Leo",
-    "address": "shaun@test.com",
-    "salary": "Software Engineer",
-    "role": "Software Engineer",
-    "empNum": "Software Engineer"
+    "name": "James",
+    "address": "james@test.com",
+    "salary": "88000",
+    "role": "Backend Developer",
+    "empNum": "BD789"
+  },
+  {
+    "id": 4,
+    "name": "Sophia",
+    "address": "sophia@test.com",
+    "salary": "87000",
+    "role": "Data Scientist",
+    "empNum": "DS234"
+  },
+  {
+    "id": 5,
+    "name": "Liam",
+    "address": "liam@test.com",
+    "salary": "94000",
+    "role": "DevOps Engineer",
+    "empNum": "DO567"
+  },
+  {
+    "id": 6,
+    "name": "Olivia",
+    "address": "olivia@test.com",
+    "salary": "91000",
+    "role": "UI/UX Designer",
+    "empNum": "UX890"
+  },
+  {
+    "id": 7,
+    "name": "Ethan",
+    "address": "ethan@test.com",
+    "salary": "86000",
+    "role": "Quality Assurance",
+    "empNum": "QA123"
+  },
+  {
+    "id": 8,
+    "name": "Charlotte",
+    "address": "charlotte@test.com",
+    "salary": "88000",
+    "role": "Project Manager",
+    "empNum": "PM456"
+  },
+  {
+    "id": 9,
+    "name": "Noah",
+    "address": "noah@test.com",
+    "salary": "90000",
+    "role": "Full Stack Developer",
+    "empNum": "FS789"
+  },
+  {
+    "id": 10,
+    "name": "Isabella",
+    "address": "isabella@test.com",
+    "salary": "93000",
+    "role": "Cloud Engineer",
+    "empNum": "CE234"
   }
 ]
