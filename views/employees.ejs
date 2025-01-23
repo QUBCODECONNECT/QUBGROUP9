@@ -10,7 +10,7 @@
 <body>
     <h1>Employees List</h1>
 
-    <% if (users && users.length > 0) { %>
+    <% if (employees && employees.length > 0) { %>
         <table>
             <thead>
                 <tr>
@@ -22,16 +22,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% users.forEach(user => { %>
+                <% employees.forEach(Employees => { %>
                     <tr>
-                        <td><%= user.name %></td>
-                        <td><%= user.address %></td>
-                        <td><%= user.salary %></td>
-                        <td><%= user.role %></td>
-                        <td><%= user.empNum %></td>
-                        <td><a href="/users/<%= user.id %>">View</a></td>
-                        <td><a href="/users/update/<%= user.id %>">Edit</a></td>
-                        <td><a href="/users/delete/<%= user.id %>">Delete</a></td>
+                        <td><%= Employees.name %></td>
+                        <td><%= Employees.address %></td>
+                        <td><%= Employees.salary %></td>
+                        <td><%= Employees.role %></td>
+                        <td><%= Employees.empNum %></td>
+                        <td><a href="/employees/<%= Employees.id %>">View</a></td>
                     </tr>
                 <% }); %>
             </tbody>
@@ -39,9 +37,5 @@
     <% } else { %>
         <p>No users found.</p>
     <% } %>
-
-    <form action="/users/add" method="get">
-        <input type="submit" value="Create New User">
-    </form> 
 </body>
 </html>
