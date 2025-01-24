@@ -4,6 +4,7 @@ const fs = require('fs');
 class UserService {
     constructor() {
         this.filePath = "users.json";
+        this.userAccounts = "user_account.json"
     }
 
     // Helper function to read users from JSON file
@@ -16,6 +17,17 @@ class UserService {
             return [];
         }
     }
+            // Helper function to read users from JSON file
+            readUserAccounts() {
+                try {
+                    const data = fs.readFileSync(this.userAccounts, 'utf8');
+                    return JSON.parse(data);
+                } catch (err) {
+                    console.error('Error reading users:', err);
+                    return [];
+                }
+            }
+    
 
     // Helper function to write users to JSON file
     writeUsers(users) {
@@ -67,6 +79,20 @@ class UserService {
         const deletedUser = users.splice(userIndex, 1);
         this.writeUsers(users);
         return deletedUser[0];
+    }
+    checkCredentials(username, password){
+        const userAccounts = this.readUserAccounts();
+        const userIndex = userAccounts.findIndex(userAccounts => userAccounts.username === username);
+
+        if (userIndex === -1){
+            console.log("passwords dont match");
+            return false;
+        } 
+
+        if (userAccounts[userIndex].password === password){
+            console.log("passwords match");
+            return true;
+        }
     }
 }
 
