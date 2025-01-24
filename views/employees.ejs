@@ -1,17 +1,68 @@
-<!-- index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <style>
+        .navbar-item img {
+            height: 150px !important;
+            /* Adjust height as desired */
+            width: auto !important;
+            /* Maintain aspect ratio */
+        }
+    </style>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        nav {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
+ 
 <body>
-    <h1>Employees List</h1>
-
-    <% if (employees && employees.length > 0) { %>
-        <table>
+ 
+    <!-- Header -->
+    <nav class="navbar has-background-white" role="navigation" aria-label="main navigation" style="padding: 1rem;">
+        <div class="navbar-brand">
+            <!-- Logo in its own div -->
+            <div style="display: flex; align-items: center; padding: 0.5rem;">
+                <a href="/">
+                    <img src="/images/kainoslogo.jpg" alt="Kainos logo" style="height: 100px; width: auto;">
+                </a>
+            </div>
+        </div>
+ 
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="\">Home</a>
+            </div>
+ 
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="/login" class="button is-primary is-outlined">
+                            Log Out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+ 
+    <div class="section has-background-light">
+        <h1 class="title has-text-centered">Employees List</h1>
+    </div>
+ 
+    <% if (employees && employees.length> 0) { %>
+        <table class="table is-striped is-fullwidth">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -22,7 +73,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% employees.forEach(Employees => { %>
+                <% employees.forEach(Employees=> { %>
                     <tr>
                         <td><%= Employees.name %></td>
                         <td><%= Employees.address %></td>
@@ -30,12 +81,26 @@
                         <td><%= Employees.role %></td>
                         <td><%= Employees.empNum %></td>
                         <td><a href="/employees/<%= Employees.id %>">View</a></td>
+                        <td><a href="/employees/update/<%= Employees.id %>">Edit</a></td>
+                        <td><a href="/employees/delete/<%= Employees.id %>">Delete</a></td>
                     </tr>
-                <% }); %>
+                    <% }); %>
             </tbody>
         </table>
     <% } else { %>
         <p>No users found.</p>
     <% } %>
+ 
+    <form action="/employees/add" method="get">
+        <input type="submit" value="Create New Employee">
+    </form>
+ 
+    <footer id="footer" class="footer"
+                    style="min-height: 100vh; background-image: url('/images/footerphoto.jpg'); background-size: cover; background-position: left; display: flex; align-items: top; justify-content: center; color: white; margin: 0;">
+                    <div class="content has-text-centered">
+                        <p>&copy; 2025 Kainos. All rights reserved.</p>
+                    </div>
+                </footer>
 </body>
+ 
 </html>

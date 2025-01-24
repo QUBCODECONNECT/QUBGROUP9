@@ -1,12 +1,10 @@
-// userService.js
 const fs = require('fs');
-
-class UserService {
+ 
+class EmployeeService {
     constructor() {
-        this.filePath = "users.json";
-        this.userAccounts = "user_account.json"
+        this.filePath = "employees.json";
     }
-
+ 
     // Helper function to read users from JSON file
     readUsers() {
         try {
@@ -17,85 +15,55 @@ class UserService {
             return [];
         }
     }
-        // Helper function to read users from JSON file
-        readUserAccounts() {
+ 
+     writeUsers(employees) {
             try {
-                const data = fs.readFileSync(this.userAccounts, 'utf8');
-                return JSON.parse(data);
+                fs.writeFileSync(this.filePath, JSON.stringify(employees, null, 2), 'utf8');
             } catch (err) {
-                console.error('Error reading users:', err);
-                return [];
+                console.error('Error writing users:', err);
             }
         }
-
-    // Helper function to write users to JSON file
-    writeUsers(users) {
-        try {
-            fs.writeFileSync(this.filePath, JSON.stringify(users, null, 2), 'utf8');
-        } catch (err) {
-            console.error('Error writing users:', err);
-        }
-    }
-
-    // Get all users
+    // Get all employees
     getAllEmployees() {
         return this.readUsers();
     }
-
-    // Get a user by ID
+ 
+    // Get a employee by ID
     getEmployeeById(id) {
-        const users = this.readUsers();
-        return users.find(user => user.id === id);
+        const employees = this.readUsers();
+        return employees.find(employee => employee.id === id);
     }
-
     // Create a new user
-    createUser(newUser) {
-        const users = this.readUsers();
-        newUser.id = users.length ? users[users.length - 1].id + 1 : 1;
-        users.push(newUser);
-        this.writeUsers(users);
-        return newUser;
+    createEmployee(newEmployee) {
+        const employees = this.readUsers();
+        newEmployee.id = employees.length ? employees[employees.length - 1].id + 1 : 1;
+        employees.push(newEmployee);
+        this.writeUsers(employees);
+        return newEmployee;
     }
-
+ 
     // Update a user by ID
-    updateUser(id, updatedUser) {
-        const users = this.readUsers();
-        const userIndex = users.findIndex(user => user.id === id);
+    updateEmployee(id, updatedEmployee) {
+        const employees = this.readUsers();
+        const userIndex = employees.findIndex(user => user.id === id);
         if (userIndex === -1) return null;
-
-        updatedUser.id = id;
-        users[userIndex] = updatedUser;
-        this.writeUsers(users);
-        return updatedUser;
+ 
+        updatedEmployee.id = id;
+        employees[userIndex] = updatedEmployee;
+        this.writeUsers(employees);
+        return updatedEmployee;
     }
-
+ 
     // Delete a user by ID
-    deleteUser(id) {
-        const users = this.readUsers();
-        const userIndex = users.findIndex(user => user.id === id);
+    deleteEmployee(id) {
+        const employees = this.readUsers();
+        const userIndex = employees.findIndex(user => user.id === id);
         if (userIndex === -1) return null;
-
-        const deletedUser = users.splice(userIndex, 1);
-        this.writeUsers(users);
+ 
+        const deletedUser = employees.splice(userIndex, 1);
+        this.writeUsers(employees);
         return deletedUser[0];
     }
-
-    // Check username as password
-    checkCredentials(username, password){
-        const userAccounts = this.readUserAccounts();
-        const userIndex = userAccounts.findIndex(userAccounts => userAccounts.username === username);
-
-        if (userIndex === -1){
-            console.log("passwords dont match");
-            return false;
-        } 
-
-        if (userAccounts[userIndex].password === password){
-            console.log("passwords match");
-            return true;
-        }
-    }
-
 }
-
-module.exports = UserService;
+ 
+module.exports = EmployeeService;
