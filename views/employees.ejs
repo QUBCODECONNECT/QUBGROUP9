@@ -30,6 +30,8 @@
                         <td><%= Employees.role %></td>
                         <td><%= Employees.empNum %></td>
                         <td><a href="/employees/<%= Employees.id %>">View</a></td>
+                        <td><a href="/employees/update/<%= Employees.id %>">Edit</a></td>
+                        <td><a href="/employees/delete/<%= Employees.id %>">Delete</a></td>
                     </tr>
                 <% }); %>
             </tbody>
@@ -37,5 +39,9 @@
     <% } else { %>
         <p>No users found.</p>
     <% } %>
+
+    <form action="/employees/add" method="get">
+        <input type="submit" value="Create New Employee">
+    </form>
 </body>
 </html>
