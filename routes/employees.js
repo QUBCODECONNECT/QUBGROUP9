@@ -5,7 +5,12 @@ const employeeService = new EmployeeService();
 
 
 
+
+
 router.get('/', (req,res)=>{
+  if (!req.session.user){
+    res.render('login', {fail: false});
+  }
     const employees = employeeService.getAllEmployees();
     console.log('here');
     res.render('employees',{employees})
@@ -14,7 +19,9 @@ router.get('/', (req,res)=>{
 
 
 router.get('/:id', (req, res) => {
-    console.log("Hello");
+  if (!req.session.user){
+    res.render('login', {fail: false});
+  }
     const employee = employeeService.getEmployeeById(parseInt(req.params.id));
     if (!employee) return res.status(404).send('Employee not found');
     res.render('employee', { employee: employee })
