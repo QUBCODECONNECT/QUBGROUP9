@@ -76,38 +76,32 @@
             <tbody>
                 <% employees.forEach(Employees=> { %>
                     <tr>
-                        <td>
-                            <%= Employees.name %>
-                        </td>
-                        <td>
-                            <%= Employees.address %>
-                        </td>
-                        <td>
-                            <%= Employees.salary %>
-                        </td>
-                        <td>
-                            <%= Employees.role %>
-                        </td>
-                        <td>
-                            <%= Employees.empNum %>
-                        </td>
-                        <td><a class="button is-small is-info" href="/employees/<%= Employees.id %>">View</a></td>
+                        <td><%= Employees.name %></td>
+                        <td><%= Employees.address %></td>
+                        <td><%= Employees.salary %></td>
+                        <td><%= Employees.role %></td>
+                        <td><%= Employees.empNum %></td>
+                        <td><a href="/employees/<%= Employees.id %>">View</a></td>
+                        <td><a href="/employees/update/<%= Employees.id %>">Edit</a></td>
+                        <td><a href="/employees/delete/<%= Employees.id %>">Delete</a></td>
                     </tr>
                     <% }); %>
             </tbody>
         </table>
-        <% } else { %>
-            <p>No users found.</p>
-            <% } %>
+    <% } else { %>
+        <p>No users found.</p>
+    <% } %>
 
-                <!-- Footer -->
-                <footer id="footer" class="footer"
+    <form action="/employees/add" method="get">
+        <input type="submit" value="Create New Employee">
+    </form>
+
+    <footer id="footer" class="footer"
                     style="min-height: 100vh; background-image: url('/images/footerphoto.jpg'); background-size: cover; background-position: left; display: flex; align-items: top; justify-content: center; color: white; margin: 0;">
                     <div class="content has-text-centered">
                         <p>&copy; 2025 Kainos. All rights reserved.</p>
                     </div>
                 </footer>
-
 </body>
 
 </html>
